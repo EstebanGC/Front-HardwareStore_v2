@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-//import { productT[] }
+import { productTp } from "../../state/slices/productSlice";
 import { URLAPI } from "../../configuration/URLConfig";
 
 const getProductsAPI = URLAPI + "/getallproducts";
