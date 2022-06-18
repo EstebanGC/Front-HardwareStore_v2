@@ -1,0 +1,1 @@
+export const URLAPI: string = "https://https://raulhardwarestore1.herokuapp.com/getallproviders";
