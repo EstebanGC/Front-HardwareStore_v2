@@ -8,6 +8,7 @@ type providerPropsTp = {
 }
 
 const Provider: React.FunctionComponent<providerPropsTp> = ({props}) => {
+
     return (
         <tbody>
             <tr>
@@ -18,3 +19,5 @@ const Provider: React.FunctionComponent<providerPropsTp> = ({props}) => {
         </tbody>
     )
 }
+
+export default Provider

@@ -69,4 +69,5 @@ export type { initialStateTp }
 export default billSlice.reducer
 
 export const selectBillState = () => (state: RootState) => state.bills.bills
-export const selectBillStatus = () => (state: RootState) => state.bills
+export const selectBillStatus = () => (state: RootState) => state.bills.status
+export const selectBillErrorFetch = () => (state: RootState) => state.bills.error

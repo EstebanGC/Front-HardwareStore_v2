@@ -1,16 +1,18 @@
 import { taskCancelled } from "@reduxjs/toolkit/dist/listenerMiddleware/exceptions";
 import { useEffect } from "react";
-import { Provider, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getProviders } from "../../actions/Provider/getProviders";
 import { possibleStatus } from "../../configuration/possibleStatus";
 import { selectProvErrorFetch, selectProvState, selectProvStatus } from "../../state/slices/providerSlice";
 import { RootState, useAppDispatch } from "../../state/store";
 import ProviderForm from "./ProviderForm";
+import Provider from "./Provider";
 
 interface ProviderListProps {}
 
 const ProviderList: React.FunctionComponent<ProviderListProps> = () => {
+
     const dispatch = useAppDispatch();
 
     useEffect(() =>{
@@ -23,8 +25,10 @@ const ProviderList: React.FunctionComponent<ProviderListProps> = () => {
     const status = useSelector(selectProvStatus())
     const error = useSelector(selectProvErrorFetch())
 
-    const { user } = useSelector((state: RootState) => state.logged)
+    //const { user } = useSelector((state: RootState) => state.logging)
     const navigate = useNavigate()
+
+    //useEffect(() => { if ( user ===  null) {navigate("/")}}, [])
 
     return (
         <div>
