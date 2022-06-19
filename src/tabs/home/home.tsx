@@ -4,10 +4,11 @@ import { useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
  
 const Home = () => {
-    //const {user} = useSelector((state:RootState) => state.logging)
+    const {user} = useSelector((state:RootState) => state.logging)
+    
     let navigate = useNavigate()
 
-    //useEffect(() => { if ( user===null) {navigate("/")}}, [])
+    useEffect(() => { if ( user===null) {navigate("/")}}, [])
 
     return (
         <div className='main-content'>
