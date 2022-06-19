@@ -7,11 +7,11 @@ import BillLists from "../../components/bill/BillList";
 
 const Bills = () => {
 
-    //const { user } = useSelector((state: RootState) => state.logging)
+    const { user } = useSelector((state: RootState) => state.logging)
     
     let navigate = useNavigate()
 
-    //useEffect(() => {if (user === null) {navigate("/")}}, [])
+    useEffect(() => {if (user === null) {navigate("/")}}, [])
 
     return (
         <div className="main-content">

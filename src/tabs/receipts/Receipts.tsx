@@ -6,7 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 
 const Receipts = () => {
+
+    const { user } = useSelector((state: RootState) => state.logging)
+
     let navigate = useNavigate()
+
+    useEffect(() => { if (user === null) { navigate("/") } }, [])
 
     return (
         <div className="main-content">
@@ -15,3 +20,5 @@ const Receipts = () => {
         </div>
     )
 }
+
+export default Receipts

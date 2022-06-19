@@ -5,7 +5,12 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const EditProduct = () => {
+
+    const { user } = useSelector((state: RootState) => state.logging)
+
     let navigate = useNavigate()
+
+    useEffect(() => {if (user === null) {navigate("/")}}, [])
 
     return (
         <div className="main-content">

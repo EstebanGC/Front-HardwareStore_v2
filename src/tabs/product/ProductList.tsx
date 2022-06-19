@@ -7,9 +7,11 @@ import ProductListFiltered from "../../components/product/ProductListFiltered";
 
 const ProductList = () => {
 
+    const { user } = useSelector((state: RootState) => state.logging)
+
     let navigate = useNavigate()
 
-    //useEffect(() => {if (user )})
+    useEffect(() => {if (user === null) {navigate("/")}}, [])
 
     return (
         <div className="main-content">

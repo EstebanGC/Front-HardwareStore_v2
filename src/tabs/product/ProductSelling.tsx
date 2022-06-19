@@ -13,8 +13,12 @@ import { updateProduct } from "../../actions/Product/updateProduct";
 
 
 const ProductSelling = () => {
+
+    const { user } = useSelector((state: RootState) => state.logging)
     
     let navigate = useNavigate()
+
+    useEffect(() => { if (user === null) { navigate("/") } }, [])
 
     const selling = useSelector((state:RootState) => state.sell)
 

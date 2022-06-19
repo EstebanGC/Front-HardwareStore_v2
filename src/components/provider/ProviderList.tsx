@@ -26,6 +26,7 @@ const ProviderList: React.FunctionComponent<ProviderListProps> = () => {
     const error = useSelector(selectProvErrorFetch())
 
     //const { user } = useSelector((state: RootState) => state.logging)
+
     const navigate = useNavigate()
 
     //useEffect(() => { if ( user ===  null) {navigate("/")}}, [])
