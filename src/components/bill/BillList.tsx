@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 interface BillListProps {}
 
-const BillList: React.FunctionComponent<BillListProps> = () => {
+const BillLists: React.FunctionComponent<BillListProps> = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const BillList: React.FunctionComponent<BillListProps> = () => {
 
     return (
         <div>
-            <table id='bill-table'>
+            <table id='table'>
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -40,4 +40,4 @@ const BillList: React.FunctionComponent<BillListProps> = () => {
     )
 }
 
-export default BillList;
+export default BillLists;

@@ -21,3 +21,5 @@ const ProductSellTable: React.FunctionComponent<sellPropsTp> = ({props}) => {
         </tbody>
     )
 }
+
+export default ProductSellTable;

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { possibleStatus } from '../../configuration/possibleStatus';
 import { getProducts } from '../../actions/Product/getProduct';
 import { selectProdState, selectProdStatus, selectProdErrorFetch } from '../../state/slices/productSlice';
-import ProductTable from './ProductTable';
+import ProductCreateTable from './ProductCreateTable';
 
 
 interface ProductListProps {}
@@ -42,7 +42,7 @@ const ProductListFiltered: React.FunctionComponent<ProductListProps> = () => {
                         <th>Amount</th>
                     </tr>
                 </thead>
-                {!error&&getProdcts.map((product) => <ProductTable key={product.id} props={product}/> )}
+                {!error&&getProdcts.map((product) => <ProductCreateTable key={product.id} props={product}/> )}
             </table>
         </div>
     )

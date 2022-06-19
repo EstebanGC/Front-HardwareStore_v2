@@ -4,12 +4,12 @@ import { possibleStatus } from '../../configuration/possibleStatus';
 import { selectProdState, selectProdStatus, selectProdErrorFetch} from "../../state/slices/productSlice";
 import { getProducts } from "../../actions/Product/getProduct";
 import { useSelector } from 'react-redux';
-import ProductTable from "./ProductTable";
+import ProductTable from "./ProductCreateTable";
 
 
 interface ProductListProps {}
 
-const ProductListProps: React.FunctionComponent<ProductListProps> = () => {
+const ProductsListTable: React.FunctionComponent<ProductListProps> = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -41,4 +41,6 @@ const ProductListProps: React.FunctionComponent<ProductListProps> = () => {
         </div>
     )
 }
+
+export default ProductsListTable
 

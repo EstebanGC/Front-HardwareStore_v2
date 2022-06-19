@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { billTp } from "../state/slices/billSlice";
+import { billTp} from "../../state/slices/billSlice";
 import { URLAPI } from "../../configuration/URLConfig";
 
 const createBillAPI = URLAPI + "./getallbills";
