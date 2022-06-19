@@ -24,6 +24,7 @@ const Product: React.FunctionComponent<productPropsTp> = ({props}) => {
                 <td>{props.productName}</td>
                 <td>{props.productPrice}</td>
                 <td>{props.productDescription}</td>
+                <td>{props.sold}</td>
                 <td>{props.minUnits}</td>
                 <td>{props.maxUnits}</td>
                 <td>{props.providers.providerName}</td>

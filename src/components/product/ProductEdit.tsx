@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useAppDispatch } from '../../state/store';
 import { useLocation } from 'react-router-dom';
-import { productTp } from '../../state/slices/productSlice';
+import { productTp, selectProdErrorFetch } from '../../state/slices/productSlice';
 import { useNavigate } from 'react-router-dom';
 import { updateProduct } from '../../actions/Product/updateProduct';
 import { nanoid } from '@reduxjs/toolkit';
