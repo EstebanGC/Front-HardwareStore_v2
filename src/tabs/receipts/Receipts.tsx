@@ -1,8 +1,9 @@
-import ReceiptList from "../../components/receipt/ReceiptList";
+import Receipt from "../../components/receipt/ReceiptTable";
 import { RootState } from "../../state/store";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ReceiptList from "../../components/receipt/ReceiptList";
 
 
 const Receipts = () => {
@@ -16,7 +17,7 @@ const Receipts = () => {
     return (
         <div className="main-content">
             <h1>Receipts</h1>
-            <ReceiptList />
+            <ReceiptList/>
         </div>
     )
 }

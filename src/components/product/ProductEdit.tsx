@@ -32,9 +32,7 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
 
     let navigate = useNavigate();
 
-    //var pastPrice = productEdit.productPrice;
-
-     
+    
     const onEdit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (productPrice&&productDescription&&addAvailableUnits&&(availableUnits+addAvailableUnits < productEdit.maxUnits)) {
@@ -54,24 +52,22 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
             dispatch(updateProduct(productUpdated))
             useEffect(() => {dispatch(getProducts())}, [dispatch] )
             
-            let currentDate = moment(new Date()).format("MM/DD/YYYY hh:mm:ss")
+            let currentDate = moment(new Date()).format("MM-DD-YYYY ")
 
-        //     if(addAvailableUnits !=0) {
+            if(addAvailableUnits !=0) {
                 
-        //         const receiptCreated: receiptTp = {
-        //             id: nanoid(),
-        //             units:addAvailableUnits,
-        //             product: productUpdated,
-        //             date: currentDate,
-        //         }
-        //         dispatch(createReceipt(receiptCreated))
-        //     }
-        //     navigate("/stock")
-        // } else if (availableUnits + addAvailableUnits > productEdit.maxUnits) {
-        //     alert("You can not exceed the maximum units")
-        // } else {
-        //     alert("You have to use only positive numbers")
-        }
+                const receiptCreated: receiptTp = {
+                    id: nanoid(),
+                    units:addAvailableUnits,
+                    product: productUpdated,
+                    date: currentDate,
+                }
+                dispatch(createReceipt(receiptCreated))
+            }
+            navigate("/stock")
+        } else if (availableUnits + addAvailableUnits > productEdit.maxUnits) {
+            alert("You can not exceed the maximum units")
+        } 
     }
 
     return (

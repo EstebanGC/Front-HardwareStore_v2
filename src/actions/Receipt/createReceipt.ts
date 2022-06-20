@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { URLAPI } from "../../configuration/URLConfig";
 import { receiptTp } from "../../state/slices/receiptSlice";
 
-const createReceiptAPI = URLAPI + "./create/receiot";
+const createReceiptAPI = URLAPI + "/create/receipt";
 
 export const createReceipt = createAsyncThunk('createReceipt', async(receipt: receiptTp) => {
     const res = await fetch(createReceiptAPI, {

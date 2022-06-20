@@ -22,6 +22,8 @@ const ProductSelling = () => {
 
     const selling = useSelector((state:RootState) => state.sell)
 
+    //Call last object
+
     const auxiliarState: sellTp = {
         productsSold: []
     }
@@ -35,22 +37,26 @@ const ProductSelling = () => {
 
     test.map(object => auxiliarState.productsSold.push(object))
 
+    //Call logged user state
+
+    //const getUser = useSelector()
+    
     let total = auxiliarState.productsSold.map(product => product.productPrice*product.sold).reduce((a,b) => a+b,0)
 
     const [clientName, setClientName] = useState("")
-    const [sellerName, setSellerName] = useState("")
+    
 
     const dispatch = useAppDispatch();
 
     const onSelling = async(e:React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
 
-        if(clientName&&sellerName&&total!=0){
+        if(clientName&&total!=0){
             const addBill: billTp = {
                 id: nanoid(),
-                date: moment(new Date()).format("MM/DD/YYYY hh:mm:ss"),
+                date: moment(new Date()).format("MM-DD-YYYY"),
                 clientName: clientName,
-                sellerName: sellerName,
+                sellerName: user.displayName,
                 productsSold: auxiliarState.productsSold,
                 totalSale: total,
             }
@@ -70,13 +76,14 @@ const ProductSelling = () => {
                     sold: 0,
                     minUnits: product.minUnits,
                     maxUnits: product.maxUnits,
-                    availableUnits: product.availableUnits,
+                    availableUnits: product.availableUnits-product.sold,
                     providers: product.providers,
                 }
 
                 if (productUpdated.minUnits > productUpdated.availableUnits) {
                     alert("You have the minimum units allowed!")
                 }
+                console.log(productUpdated)
                 dispatch(updateProduct(productUpdated))
             })
 
@@ -101,9 +108,9 @@ const ProductSelling = () => {
                 <label>Total</label>
                 <input type="number" id="total" value={total}/>
                 <label>Client Name</label>
-                <input type="text" id="name" placeholder="Client name..." onChange={(e) => setClientName(e.target.value)}/>
+                <input type="text" id="name"  onChange={(e) => setClientName(e.target.value)}/>
                 <label>Seller Name</label>
-                <input type="text" id="description" placeholder="Seller name..." onChange={(e)=> setSellerName(e.target.value)} />
+                <input type="text" id="description"  value={user.displayName} />
                 <input type="submit" value="Selling"/>
                 <br/>
                 <button className="button3" onClick={() => {navigate("/new-selling");dispatch(emptyProducts())}}>Back</button>

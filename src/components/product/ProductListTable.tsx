@@ -34,6 +34,7 @@ const ProductsListTable: React.FunctionComponent<ProductListProps> = () => {
                         <th>Minimum units</th>
                         <th>Maximum units</th>
                         <th>Available units</th>
+                        <th>Providers</th>
                         <th>Delete</th>                    
                     </tr>
                 </thead>

@@ -18,6 +18,7 @@ export default function NavBar() {
           <Link to="/new-selling">Products</Link>
           <Link to="/bills">Bills</Link>
           <Link to="/receipts">Receipts</Link>
+          <Link to='/product-car'> Product car </Link>
           <LogOut/>
         </ul>
       </nav>

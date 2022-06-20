@@ -14,6 +14,7 @@ const sellSlice=createSlice({
     initialState,
     reducers: {
         addProduct(state,action){
+            console.log(action.payload)
             state.productsSold.push(action.payload)
         },
         emptyProducts(state){

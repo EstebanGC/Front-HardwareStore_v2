@@ -9,6 +9,7 @@ const Home = () => {
     let navigate = useNavigate()
 
     useEffect(() => { if ( user===null) {navigate("/")}}, [])
+    console.log(user)
 
     return (
         <div className='main-content'>

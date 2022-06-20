@@ -6,13 +6,13 @@ import Receipts from "../tabs/receipts/Receipts";
 import Home from "../tabs/home/home";
 import LogIn from "../tabs/login/LogIn";
 import SignUp from "../tabs/login/LogIn";
-
 import ProductEdit from "../tabs/product/ProductEdit";
 import ProductSelling from "../tabs/product/ProductSelling";
 import ProductList from "../tabs/product/ProductList";
 import ProductAllList from "../tabs/product/ProductAlllist";
 import ProviderList from "../tabs/provider/ProviderList";
 import ProviderAdd from "../tabs/provider/ProviderList";
+import ProductListFilteredTab from "../tabs/product/ProducListFilteredTab";
 
 
 
@@ -33,6 +33,7 @@ export default function RoutesSite() {
             <Route path='/add-provider' element={<ProviderAdd />} />
             <Route path='/provider-list' element={<ProviderList />} />
             <Route path='/receipts' element={<Receipts />} />
+            <Route path='/product-car' element={<ProductListFilteredTab/>}/>
             
         </Routes>
     )

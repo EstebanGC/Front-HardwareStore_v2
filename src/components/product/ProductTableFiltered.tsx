@@ -7,7 +7,7 @@ type productPropsTp ={
     props: productTp
 }
 
-const Product: React.FC<productPropsTp> = ({props}) => {
+const Products: React.FC<productPropsTp> = ({props}) => {
     
     const dispatch = useAppDispatch()
 
@@ -38,11 +38,12 @@ const Product: React.FC<productPropsTp> = ({props}) => {
                     <td>{props.productDescription}</td>
                     <td>{props.minUnits}</td>
                     <td>{props.maxUnits}</td>
+                    <td>{props.availableUnits}</td>
                     <td>{props.providers.providerName}</td>
                     <td><input type="number" min="0" max={props.availableUnits} onChange={(e)=> (productsCar(props, Number(e.target.value)))}/></td>
                 </tr>
             </tbody>
         )
     }
-export default Product;
+export default Products;
 

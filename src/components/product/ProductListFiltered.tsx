@@ -6,6 +6,7 @@ import { possibleStatus } from '../../configuration/possibleStatus';
 import { getProducts } from '../../actions/Product/getProduct';
 import { selectProdState, selectProdStatus, selectProdErrorFetch } from '../../state/slices/productSlice';
 import ProductCreateTable from './ProductCreateTable';
+import Products from './ProductTableFiltered';
 
 interface ProductListProps {}
 
@@ -43,7 +44,7 @@ const ProductListFiltered: React.FunctionComponent<ProductListProps> = () => {
                         <th>Amount</th>
                     </tr>
                 </thead>
-                {!error&&getProdcts.map((product) => <ProductCreateTable key={product.id} props={product}/>   )}
+                {!error&&getProdcts.map((product) => <Products key={product.id} props={product}/>   )}
             </table>
         </div>
     )
