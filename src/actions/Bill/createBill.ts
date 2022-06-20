@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { billTp} from "../../state/slices/billSlice";
 import { URLAPI } from "../../configuration/URLConfig";
 
-const createBillAPI = URLAPI + "./getallbills";
+const createBillAPI = URLAPI + "/create/bill";
 
 export const createBill = createAsyncThunk('createBill', async(bill: billTp) =>{
     const res = await fetch(createBillAPI, {

@@ -26,7 +26,7 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
 
     useEffect(() => {dispatch(getProviders())}, [dispatch] )
 
-    const onAdd = async (e: React.FormEvent<HTMLFormElement>) => {
+        const onAdd = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         if(productName&&productPrice&&productDescription&&minUnits&&maxUnits&&providers&&(productPrice>0&&minUnits>=0)&&(minUnits<maxUnits)){
@@ -42,7 +42,8 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
                 providers: providers
             }
             dispatch(createProduct(addProduct))
-            navigate("/Inventory")
+            
+            navigate("/stock")
         } else {
             alert("All fields have to be filled, the values have to be positive and minimum units have to be less than maximum units")
          }
@@ -58,15 +59,15 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
             <div>
                 <form className="product-form" id="addProduct" onSubmit={(e) => onAdd(e)}>
                 <label >Product name</label>
-                <input type="text" id="product-name" placeholder="Product name..." onChange={(e) => setProductName(e.target.value)}/>
+                <input type="text" id="product-name"  onChange={(e) => setProductName(e.target.value)}/>
                 <label >Price</label>
-                <input type="number" id="product-price" placeholder="Product price.." onChange={(e) => setProductPrice(Number(e.target.value))}/>
+                <input type="number" id="product-price"  onChange={(e) => setProductPrice(Number(e.target.value))}/>
                 <label >Price</label>
-                <input type="text" min="0" id="product-description" placeholder="Product description..." onChange={(e) => setProductDescription(e.target.value)}/>
+                <input type="text" min="0" id="product-description" onChange={(e) => setProductDescription(e.target.value)}/>
                 <label >Alert of low stock</label>
-                <input type="number" min="0" id="min-units" placeholder="Minimum units..." onChange={(e) => setMinUnits(Number(e.target.value))}/>
+                <input type="number" min="0" id="min-units"  onChange={(e) => setMinUnits(Number(e.target.value))}/>
                 <label >Maximum Stock</label>
-                <input type="number" min="0" id="max-units" placeholder="Maximum units..." onChange={(e) => setMaxUnits(Number(e.target.value))}/>
+                <input type="number" min="0" id="max-units"  onChange={(e) => setMaxUnits(Number(e.target.value))}/>
                 <label >Select a provider</label>
                 <select id="providers" name="providers" onChange={(e) => selectProvOnList(e)}>
                     <option disabled selected> Select a provider </option>
@@ -75,10 +76,6 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
                     </option>)}
                 </select>
                 <input type="submit" value="Submit" />
-                <br />
-                <br />
-                <button className='button3' onClick={() => navigate("/Inventory")}>Go Back</button><br />
-
                 </form>
             </div>
         )

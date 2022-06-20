@@ -5,7 +5,7 @@ import billReducer from "./slices/billSlice";
 import productReducer from "./slices/productSlice";
 import receiptReducer from "./slices/receiptSlice";
 import sellReducer from "./slices/sellSlice";
-import { logInReducer } from "./slices/loggeInSlice";
+import logInInReducer from "./slices/loggeInSlice";
 
 export const store = configureStore({
     reducer: {
@@ -14,7 +14,7 @@ export const store = configureStore({
         products: productReducer,
         receipts: receiptReducer,
         sell: sellReducer,
-        logging: logInReducer
+        logging: logInInReducer,
     }
 })
 

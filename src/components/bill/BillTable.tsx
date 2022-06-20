@@ -12,13 +12,13 @@ const Bill: React.FunctionComponent<billPropsTp> =({ props}) => {
                 <td>{props.date}</td>
                 <td>{props.clientName}</td>
                 <td>{props.sellerName}</td>
-                <td><table>{props.productsSold.map(product => {
+                {/* <td><table>{props.productsSold.map(product => {
                     return <tr>
                         <td>{product.productName}</td>
                         <td>{product.sold}</td>
                     </tr>
                 })}
-                </table></td>
+                </table></td> */}
                 <td>{props.totalSale}</td>
             </tr>
         </tbody>

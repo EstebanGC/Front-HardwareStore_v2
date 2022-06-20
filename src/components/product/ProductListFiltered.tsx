@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useAppDispatch} from '../../state/store';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,26 +7,27 @@ import { getProducts } from '../../actions/Product/getProduct';
 import { selectProdState, selectProdStatus, selectProdErrorFetch } from '../../state/slices/productSlice';
 import ProductCreateTable from './ProductCreateTable';
 
-
 interface ProductListProps {}
-
 
 const ProductListFiltered: React.FunctionComponent<ProductListProps> = () => {
     
     let navigate = useNavigate();
 
     const dispatch = useAppDispatch();
-
+    
     useEffect(() => {
         if(status === possibleStatus.IDLE) {
+            
             dispatch(getProducts())
+           
         }
     }, [dispatch])
-
+   
+    
     const getProdcts = useSelector(selectProdState())
     const status = useSelector(selectProdStatus())
     const error = useSelector(selectProdErrorFetch())
-
+    
     return (
         <div>
             <table id='table'>
@@ -42,7 +43,7 @@ const ProductListFiltered: React.FunctionComponent<ProductListProps> = () => {
                         <th>Amount</th>
                     </tr>
                 </thead>
-                {!error&&getProdcts.map((product) => <ProductCreateTable key={product.id} props={product}/> )}
+                {!error&&getProdcts.map((product) => <ProductCreateTable key={product.id} props={product}/>   )}
             </table>
         </div>
     )

@@ -1,4 +1,3 @@
-import { taskCancelled } from "@reduxjs/toolkit/dist/listenerMiddleware/exceptions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -25,11 +24,7 @@ const ProviderList: React.FunctionComponent<ProviderListProps> = () => {
     const status = useSelector(selectProvStatus())
     const error = useSelector(selectProvErrorFetch())
 
-    //const { user } = useSelector((state: RootState) => state.logging)
-
-    const navigate = useNavigate()
-
-    //useEffect(() => { if ( user ===  null) {navigate("/")}}, [])
+    console.log(getAllProviders)
 
     return (
         <div>

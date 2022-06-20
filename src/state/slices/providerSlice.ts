@@ -37,6 +37,7 @@ const providerSlice = createSlice({
 
         builder.addCase(getProviders.fulfilled, (state, action) => {
             state.status = possibleStatus.COMPLETED;
+            state.providers=action.payload;
         })
 
         builder.addCase(getProviders.rejected, (state, action) => {
@@ -51,6 +52,7 @@ const providerSlice = createSlice({
 
         builder.addCase(createProvider.fulfilled, (state, action) => {
             state.status = possibleStatus.COMPLETED;
+            state.providers.push(action.payload)
         })
 
         builder.addCase(createProvider.rejected, (state, action) => {

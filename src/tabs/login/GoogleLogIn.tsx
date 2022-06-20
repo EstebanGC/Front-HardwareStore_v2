@@ -1,7 +1,7 @@
 import { signInWithPopup, GoogleAuthProvider, OAuthCredential } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { auth } from "../../firebaseConfig";
-import { logInReducer }  from "../../state/slices/loggeInSlice";
+import { logInInReducer }  from "../../state/slices/loggeInSlice";
 import { useNavigate } from "react-router-dom";
 
 const providerGoogleAuth = new GoogleAuthProvider();
@@ -24,9 +24,10 @@ const GoogleLogIn: React.FunctionComponent = () => {
 
                 const user = result.user;
 
-                dispatch(logInReducer(user))
+                dispatch(logInInReducer(user))
+                console.log(user)
 
-                navigate('/Welcome')
+                navigate('/home')
 
             }).catch((error) => {
                 const errorCode = error.code;

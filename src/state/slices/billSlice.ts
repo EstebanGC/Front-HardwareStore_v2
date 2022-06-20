@@ -41,7 +41,7 @@ const billSlice = createSlice({
             state.bills= action.payload;
         })
 
-        builder.addCase(getBills.fulfilled, (state,action) => {
+        builder.addCase(getBills.rejected, (state,action) => {
             state.status=possibleStatus.FAILED;
             state.error = "There are errors";
             state.bills=[]
@@ -56,7 +56,7 @@ const billSlice = createSlice({
             state.bills.push(action.payload)
         })
 
-        builder.addCase(createBill.fulfilled, (state,action) => {
+        builder.addCase(createBill.rejected, (state,action) => {
             state.status=possibleStatus.FAILED;
             state.error = "There are errors when creating a bill";
             state.bills=[]

@@ -6,13 +6,14 @@ import Receipts from "../tabs/receipts/Receipts";
 import Home from "../tabs/home/home";
 import LogIn from "../tabs/login/LogIn";
 import SignUp from "../tabs/login/LogIn";
-import ProductAdd from "../tabs/product/ProductAdd";
+
 import ProductEdit from "../tabs/product/ProductEdit";
 import ProductSelling from "../tabs/product/ProductSelling";
 import ProductList from "../tabs/product/ProductList";
 import ProductAllList from "../tabs/product/ProductAlllist";
 import ProviderList from "../tabs/provider/ProviderList";
 import ProviderAdd from "../tabs/provider/ProviderList";
+
 
 
 export default function RoutesSite() {
@@ -24,8 +25,7 @@ export default function RoutesSite() {
     return (
         <Routes>
             <Route path='/bills' element={<Bills />} />
-            <Route path='/Welcome' element={<Home />} />
-            <Route path='/add-product' element={<ProductAdd />} />
+            <Route path='/home' element={<Home />} />
             <Route path='/edit-product' element={<ProductEdit />} />
             <Route path='/new-selling' element={<ProductList />} />
             <Route path='/selling' element={<ProductSelling />} />
@@ -33,11 +33,13 @@ export default function RoutesSite() {
             <Route path='/add-provider' element={<ProviderAdd />} />
             <Route path='/provider-list' element={<ProviderList />} />
             <Route path='/receipts' element={<Receipts />} />
+            
         </Routes>
     )
 }
     return (
         <Routes>
+            
            <Route path='/' element={<LogIn/>}/>
            <Route path='/sign-up' element={<SignUp/>}/>
         </Routes>

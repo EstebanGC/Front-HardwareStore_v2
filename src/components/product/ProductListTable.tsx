@@ -5,6 +5,7 @@ import { selectProdState, selectProdStatus, selectProdErrorFetch} from "../../st
 import { getProducts } from "../../actions/Product/getProduct";
 import { useSelector } from 'react-redux';
 import ProductTable from "./ProductCreateTable";
+import ProductForm from './ProductForm';
 
 
 interface ProductListProps {}
@@ -38,6 +39,7 @@ const ProductsListTable: React.FunctionComponent<ProductListProps> = () => {
                 </thead>
                         {!error && getProds.map((product) => <ProductTable key={product.id} props={product}/>)}
             </table>
+            <ProductForm/>
         </div>
     )
 }

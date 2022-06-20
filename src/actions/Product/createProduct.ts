@@ -3,7 +3,7 @@ import { productTp } from "../../state/slices/productSlice";
 import { URLAPI } from "../../configuration/URLConfig";
 
 
-const createProductAPI = URLAPI + "./create/product";
+const createProductAPI = URLAPI + "/create/product";
 
 export const createProduct = createAsyncThunk('createProduct', async(product: productTp) => {
     const res = await fetch(createProductAPI, {

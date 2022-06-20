@@ -3,7 +3,7 @@ import { possibleStatus } from "../../configuration/possibleStatus";
 import { selectBillState, selectBillStatus, selectBillErrorFetch } from "../../state/slices/billSlice";
 import { getBills } from "../../actions/Bill/getBills";
 import { useSelector } from "react-redux";
-import BillTable from './BillTable';
+import Bill from './BillTable';
 import { useEffect } from "react";
 
 interface BillListProps {}
@@ -30,11 +30,11 @@ const BillLists: React.FunctionComponent<BillListProps> = () => {
                         <th>Date</th>
                         <th>Client</th>
                         <th>Seller</th>
-                        <th>Product</th>
+                        {/* <th>Product</th> */}
                         <th>Total sale</th>
                     </tr>
                 </thead>
-                {!error && getBlls.map((bill) => <BillTable key={bill.id} props={bill}/>)}
+                {!error && getBlls.map((bill) => <Bill key={bill.id} props={bill}/>)}
             </table>
         </div>
     )

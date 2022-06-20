@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProductListFiltered from "../../components/product/ProductListFiltered";
-import LogIn from "../login/LogIn";
+import { logInInReducer } from "../../state/slices/loggeInSlice";
+
 
 const ProductList = () => {
 
@@ -18,6 +19,7 @@ const ProductList = () => {
             <h1>Create a new selling</h1>
             <form id="table" onSubmit={()=> navigate("/selling")}>
                 <ProductListFiltered/>
+                <input className="goToOrder" id="submit" type="submit" value="Submit" />
             </form>
         </div>
     )

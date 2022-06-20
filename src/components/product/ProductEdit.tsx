@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useAppDispatch } from '../../state/store';
 import { useLocation } from 'react-router-dom';
 import { productTp, selectProdErrorFetch } from '../../state/slices/productSlice';
@@ -8,6 +8,9 @@ import { nanoid } from '@reduxjs/toolkit';
 import { receiptTp } from '../../state/slices/receiptSlice';
 import { createReceipt } from '../../actions/Receipt/createReceipt';
 import moment from 'moment';
+import {createProduct} from "../../actions/Product/createProduct";
+import { getProducts } from '../../actions/Product/getProduct';
+
 
 interface ProductFormProps{}
 
@@ -29,8 +32,9 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
 
     let navigate = useNavigate();
 
-    var pastPrice = productEdit.productPrice;
+    //var pastPrice = productEdit.productPrice;
 
+     
     const onEdit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (productPrice&&productDescription&&addAvailableUnits&&(availableUnits+addAvailableUnits < productEdit.maxUnits)) {
@@ -42,28 +46,31 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
                 sold: 0,
                 minUnits: productEdit.minUnits,
                 maxUnits: productEdit.maxUnits,
-                availableUnits: 0,
+                availableUnits: availableUnits + addAvailableUnits,
                 providers: productEdit.providers,
             }
+
+            console.log(productUpdated)
             dispatch(updateProduct(productUpdated))
+            useEffect(() => {dispatch(getProducts())}, [dispatch] )
             
             let currentDate = moment(new Date()).format("MM/DD/YYYY hh:mm:ss")
 
-            if(addAvailableUnits !=0) {
+        //     if(addAvailableUnits !=0) {
                 
-                const receiptCreated: receiptTp = {
-                    id: nanoid(),
-                    units:addAvailableUnits,
-                    product: productUpdated,
-                    date: currentDate,
-                }
-                dispatch(createReceipt(receiptCreated))
-            }
-            navigate("/Inventory")
-        } else if (availableUnits + addAvailableUnits > productEdit.maxUnits) {
-            alert("You can not exceed the maximum units")
-        } else {
-            alert("You have to use only positive numbers")
+        //         const receiptCreated: receiptTp = {
+        //             id: nanoid(),
+        //             units:addAvailableUnits,
+        //             product: productUpdated,
+        //             date: currentDate,
+        //         }
+        //         dispatch(createReceipt(receiptCreated))
+        //     }
+        //     navigate("/stock")
+        // } else if (availableUnits + addAvailableUnits > productEdit.maxUnits) {
+        //     alert("You can not exceed the maximum units")
+        // } else {
+        //     alert("You have to use only positive numbers")
         }
     }
 
@@ -73,17 +80,17 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
                 <label>Change description</label>
                 <input type='text' id='description' placeholder={productEdit.productDescription} onChange={(e) => setProductDescription(e.target.value)}/> 
                 <label>Price</label>
-                <input type='text' min='0' id='price' placeholder={String(productEdit.productPrice)} onChange={(e) => setProductPrice(Number(e.target.value))}/>
+                <input type='text' id='price' placeholder={String(productEdit.productPrice)} onChange={(e) => setProductPrice(Number(e.target.value))}/>
                 <label>Available units</label>
                 <br/>
                 <th>{productEdit.availableUnits}</th>
                 <br/>
                 <label>Add units</label>
-                <input type='numeber' min='0' max={productEdit.maxUnits - productEdit.availableUnits} id='available-units' placeholder="Add available units ..."
+                <input type='number' min='0' max={productEdit.maxUnits - productEdit.availableUnits} id='available-units' placeholder="Add available units ..."
                 onChange={(e)=> setAddAvailableUnits(Number(e.target.value))}/>
                 <input type='submit' value="Update" />
                 <br/>
-                <button className='button3' onClick={() => navigate("/Inventory")}>Back</button>
+                <button className='button3' onClick={() => navigate("/stock")}>Back</button>
             </form>
 
         </div>

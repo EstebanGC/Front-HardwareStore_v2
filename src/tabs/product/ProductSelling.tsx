@@ -81,7 +81,7 @@ const ProductSelling = () => {
             })
 
         }else{
-            alert("You need to type in every input")
+            alert("You need to fill all fields")
         }
     }
 

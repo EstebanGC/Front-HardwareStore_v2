@@ -1,4 +1,3 @@
-import ProductListTable from '../../components/product/ProductCreateTable';
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from 'react';

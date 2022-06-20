@@ -10,7 +10,7 @@ const Receipt: React.FunctionComponent<receiptPropsTp> = ({props}) => {
             <tr>
                 <td>{props.id}</td>
                 <td>{props.units}</td>
-                <td>{props.product.id}</td>
+                {/* <td>{props.product.id}</td> */}
                 <td>{props.product.productName}</td>
                 <td>{props.date}</td>
                 <td>{props.product.providers.providerName}</td>

@@ -7,8 +7,8 @@ import { createProvider } from '../../actions/Provider/createProvider';
 
 interface ProviderFormProp{}
 
-const ProviderForm: React.FC<ProviderFormProp> = (props) => {
-    const [providerName, serProviderName] = useState("")
+const ProvidersForm: React.FC<ProviderFormProp> = (props) => {
+    const [providerName, setProviderName] = useState("")
     const [email, setEmail] = useState("")
     const [passport, setPassport] = useState("")
 
@@ -24,26 +24,25 @@ const ProviderForm: React.FC<ProviderFormProp> = (props) => {
                 email,
                 passport }
             dispatch(createProvider(newProvider))
-            serProviderName("")
+            setProviderName("")
             setEmail("")
             setPassport("")
         }
     }
-    
 
     let navigate = useNavigate();
 
     return (
         <div>
-            <form className='provider-form'>
+            <form className='provider-form' id="addProvider" onSubmit={(e) => {onAdd(e); navigate("/provider-list")}}>
                 <label>Name</label>
-                <input  type="text" name="providerName" value={providerName} />
+                <input  type="text" name="providerName" value={providerName}  onChange={(e) => setProviderName(e.target.value)} />
                 <br/>
                 <label>E-mail</label>
-                <input  type="text" name="providerEmail" value={email} />
+                <input  type="text" name="providerEmail"  value={email}  onChange={(e) => setEmail(e.target.value)} />
                 <br/>
                 <label>Passport</label>
-                <input  type="text" name="providerPassport" value={passport}/>
+                <input  type="text" name="providerPassport" value={passport}  onChange={(e) => setPassport(e.target.value)}/>
                 <br/>
                 <button className='provider-bttn'  type="submit">Add Provider</button>
             </form>
@@ -51,7 +50,7 @@ const ProviderForm: React.FC<ProviderFormProp> = (props) => {
         )
 }
 
-export default ProviderForm
+export default ProvidersForm
 
 
 

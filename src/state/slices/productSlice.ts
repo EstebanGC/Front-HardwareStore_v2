@@ -4,6 +4,8 @@ import { getProducts } from "../../actions/Product/getProduct";
 import { possibleStatus } from "../../configuration/possibleStatus";
 import { RootState } from "../store";
 import { providerTp } from "./providerSlice";
+import { updateProduct}  from "../../actions/Product/updateProduct";
+import { deleteProduct } from "../../actions/Product/deleteProduct";
 
 type productTp = {
     id:string,
@@ -61,10 +63,42 @@ const productSlice = createSlice({
             state.products.push(action.payload);    
         })
 
-        builder.addCase(createProduct.rejected, (state,action) => {
+        builder.addCase(createProduct.rejected, (state, action) => {
             state.status = possibleStatus.FAILED;
-            state.error = "There are when creatig a product";
+            state.error = "There are errors when creating a product";
             state.products = []
+        })
+
+        builder.addCase(updateProduct.pending, (state, action) => {
+            state.status = possibleStatus.PENDING
+        })
+        
+        builder.addCase(updateProduct.fulfilled, (state, action) => {
+            state.status = possibleStatus.COMPLETED
+            let productUpdated = state.products.map(product => product.id===action.payload.id?action.payload:product);
+            state.products = productUpdated
+        })
+
+        builder.addCase(updateProduct.rejected, (state, action) => {
+            state.status = possibleStatus.FAILED
+            state.error = "There are errors when updating a product"
+        })
+        
+        builder.addCase(deleteProduct.pending, (state, action) => {
+            state.status = possibleStatus.PENDING;
+        })
+
+        builder.addCase(deleteProduct.fulfilled, (state, action) => {
+            state.status = possibleStatus.COMPLETED;
+            if (action.payload.deleted) {
+                state.products = state.products.filter((product) => 
+                product.id !== action.payload.productId)
+            }
+        })
+
+        builder.addCase(deleteProduct.rejected, (state, action) => {
+            state.status = possibleStatus.FAILED;
+            state.error = "Something went wrong deleting the product provider";
         })
     }
 })

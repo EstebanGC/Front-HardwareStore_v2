@@ -8,7 +8,7 @@ export const updateProduct = createAsyncThunk('updateProduct', async (product: p
     const res = await fetch(updateProductAPI, {
         method: 'PUT',
         headers: {
-            'conten-type': 'application/json; charset=UTF-8',
+            'content-type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify(product),
     })

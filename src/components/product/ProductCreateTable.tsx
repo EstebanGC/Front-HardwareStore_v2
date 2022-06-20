@@ -8,6 +8,7 @@ type productPropsTp = {
 }
 
 const Product: React.FunctionComponent<productPropsTp> = ({props}) => {
+
     const dispatch = useAppDispatch()
 
     const onDelete = (props: productTp) => {
@@ -24,12 +25,12 @@ const Product: React.FunctionComponent<productPropsTp> = ({props}) => {
                 <td>{props.productName}</td>
                 <td>{props.productPrice}</td>
                 <td>{props.productDescription}</td>
-                <td>{props.sold}</td>
+                <td>{props.availableUnits}</td>
                 <td>{props.minUnits}</td>
                 <td>{props.maxUnits}</td>
                 <td>{props.providers.providerName}</td>
                 <td>
-                    <Link to='./productEdit' state={{productEdit: props}}>
+                    <Link to='/edit-product' state={{productEdit: props}}>
                         <button className="product-add">
                             Edit
                         </button>
