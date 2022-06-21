@@ -1,1 +1,1 @@
-export const URLAPI: string = "http://localhost:8080"
+export const URLAPI: string = "https://backhardwarestore.herokuapp.com"

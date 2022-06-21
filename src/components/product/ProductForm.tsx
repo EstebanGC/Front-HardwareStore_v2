@@ -74,7 +74,7 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
                 <input className='controls' type="number" min="0" id="max-units"  onChange={(e) => setMaxUnits(Number(e.target.value))}/>
                 <br/>
                 <label >Select a provider</label>
-                <select id="providers" name="providers" onChange={(e) => selectProvOnList(e)}>
+                <select className='controls' id="providers" name="providers" onChange={(e) => selectProvOnList(e)}>
                     <option disabled selected> Select a provider </option>
                     {getProvs.map((provider) => <option key={provider.id} value={provider.id}>
                         {provider.providerName}

@@ -3,7 +3,6 @@ import { RootState } from '../state/store';
 import { Route, Routes } from 'react-router-dom';
 import Bills from "../tabs/bills/Bills";
 import Receipts from "../tabs/receipts/Receipts";
-
 import LogIn from "../tabs/login/LogIn";
 import SignUp from "../tabs/login/LogIn";
 import ProductEdit from "../tabs/product/ProductEdit";

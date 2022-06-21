@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { RootState } from "../state/store";
 import { useSelector } from "react-redux";
-import LogOut from "./logOut";
 import "./NavBar.css"
+import LogOut from "./LogOut";
 
 export default function NavBar() {
 

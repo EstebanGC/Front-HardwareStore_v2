@@ -32,9 +32,9 @@ const LogIn: React.FunctionComponent = () => {
   let navigate =useNavigate();
 
   return (
-    <div>
+    <div className="form">
       <h1>Log In</h1>
-      <form className="form">
+      <form >
         <label >Username</label>
         <input type="text" id="username" value={userName}  onChange={(e) => setUserName(e.target.value)} />
         <br />
@@ -43,11 +43,9 @@ const LogIn: React.FunctionComponent = () => {
         <br />
         <button className="btn btn-info" onClick={(e) => logInForm(e)}>Log In</button>
         <br />        
+        <GoogleLogIn/>
+        <button className="btn btn-info" onClick={() => navigate("/SignUp")}>Sign Up</button><br />
       </form>
-      <GoogleLogIn/>
-  
-      
-      <button className="btn btn-info" onClick={() => navigate("/SignUp")}>Sign Up</button><br/>
     </div>
     
   );

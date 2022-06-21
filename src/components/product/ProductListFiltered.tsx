@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { possibleStatus } from '../../configuration/possibleStatus';
 import { getProducts } from '../../actions/Product/getProduct';
 import { selectProdState, selectProdStatus, selectProdErrorFetch } from '../../state/slices/productSlice';
-import ProductCreateTable from './ProductCreateTable';
 import Products from './ProductTableFiltered';
 
 interface ProductListProps {}

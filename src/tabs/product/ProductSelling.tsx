@@ -10,6 +10,7 @@ import { createBill } from "../../actions/Bill/createBill";
 import { addProduct, emptyProducts, sellTp } from "../../state/slices/sellSlice";
 import { productTp } from "../../state/slices/productSlice";
 import { updateProduct } from "../../actions/Product/updateProduct";
+import { userTp } from "../../state/slices/loggeInSlice";
 
 
 
@@ -29,14 +30,14 @@ const ProductSelling = () => {
         productsSold: []
     }
 
-    let test = [...selling.productsSold]
+    let last = [...selling.productsSold]
 
-    test.reduceRight((acc, obj, i) => {
-        acc[obj.id]?test.splice(i, 1): acc[obj.id] = true;
+    last.reduceRight((acc, obj, i) => {
+        acc[obj.id]?last.splice(i, 1): acc[obj.id] = true;
         return acc;
     }, Object.create(null));
 
-    test.map(object => auxiliarState.productsSold.push(object))
+    last.map(object => auxiliarState.productsSold.push(object))
 
     //Call logged user state
 
@@ -50,12 +51,13 @@ const ProductSelling = () => {
     const onSelling = async(e:React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
 
-        if(clientName&&total!=0){
+        if(clientName&&total!=0){ 
+
             const addBill: billTp = {
                 id: nanoid(),
                 date: moment(new Date()).format("MM-DD-YYYY"),
                 clientName: clientName,
-                sellerName: user.displayName,
+                sellerName: user?.displayName as string,
                 productsSold: auxiliarState.productsSold,
                 totalSale: total,
             }
@@ -105,13 +107,13 @@ const ProductSelling = () => {
             </table>
             <form  className="form" id="addProduct" onSubmit={(e) => onSelling(e)}>
                 <label htmlFor="exampleInputEmail1">Total</label>
-                <input  type="number" id="total" value={total}/>
+                <input className='controls' type="number" id="total" value={total}/>
                 <br/>
                 <label htmlFor="exampleInputEmail1">Client Name</label>
-                <input  type="text" id="name"  onChange={(e) => setClientName(e.target.value)}/>
+                <input className='controls' type="text" id="name"  onChange={(e) => setClientName(e.target.value)}/>
                 <br/>
                 <label htmlFor="exampleInputEmail1">Seller Name</label>
-                <input  type="text" id="description"  value={user.displayName} />
+                <input  className='controls' type="text" id="description"  value={user?.displayName} />
                 <br/>
                 <input className="btn btn-info" type="submit" value="Selling"/>
             
