@@ -12,6 +12,7 @@ import { productTp } from "../../state/slices/productSlice";
 import { updateProduct } from "../../actions/Product/updateProduct";
 
 
+
 const ProductSelling = () => {
 
     const { user } = useSelector((state: RootState) => state.logging)
@@ -102,18 +103,18 @@ const ProductSelling = () => {
                 </thead>
                 {<ProductSellTable props={auxiliarState} />}
             </table>
-            <form  id="addProduct" onSubmit={(e) => onSelling(e)}>
+            <form  className="form" id="addProduct" onSubmit={(e) => onSelling(e)}>
                 <label htmlFor="exampleInputEmail1">Total</label>
-                <input type="number" id="total" value={total}/>
+                <input  type="number" id="total" value={total}/>
                 <br/>
                 <label htmlFor="exampleInputEmail1">Client Name</label>
-                <input type="text" id="name"  onChange={(e) => setClientName(e.target.value)}/>
+                <input  type="text" id="name"  onChange={(e) => setClientName(e.target.value)}/>
                 <br/>
                 <label htmlFor="exampleInputEmail1">Seller Name</label>
-                <input type="text" id="description"  value={user.displayName} />
+                <input  type="text" id="description"  value={user.displayName} />
                 <br/>
                 <input className="btn btn-info" type="submit" value="Selling"/>
-                <br/>
+            
                 <button className="btn btn-info" onClick={() => {navigate("/new-selling");dispatch(emptyProducts())}}>Back</button>
                 <br/>
             </form>

@@ -1,7 +1,7 @@
 export default function AddProduct() {
     return (
         <div>
-            <form className="bill-form" id='addProdct'>
+            <form className="form" id='addProdct'>
                 <label>Product name</label>
                 <input type='text' id='name' />
                 <label>Description</label>

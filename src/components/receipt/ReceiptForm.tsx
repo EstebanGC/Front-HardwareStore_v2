@@ -50,9 +50,9 @@ const ReceiptForm: React.FunctionComponent<ReceiptFormProps> = (props) => {
 
         return (
             <div>
-                <form className="product-form" id="addProduct" onSubmit={(e) => onAdd(e)}>
+                <form className="form" id="addProduct" onSubmit={(e) => onAdd(e)}>
                 <label >Units</label>
-                <input type="number" id="product-price"  onChange={(e) => setUnits(Number(e.target.value))}/>
+                <input className='controls' type="number" id="product-price"  onChange={(e) => setUnits(Number(e.target.value))}/>
                 <br/>
                 <label >Select a product</label>
                 <select id="providers" name="providers" onChange={(e) => selectProdOnList(e)}>
@@ -63,7 +63,7 @@ const ReceiptForm: React.FunctionComponent<ReceiptFormProps> = (props) => {
                 </select>
                 <br/>
                 <label >Date</label>
-                <input type="text" min="0" id="product-description" onChange={(e) => setDate(e.target.value)}/>
+                <input className='controls' type="text" min="0" id="product-description" onChange={(e) => setDate(e.target.value)}/>
                 <br/>
                 <button className="btn btn-info"  type="submit">Add Receipt</button>
                 

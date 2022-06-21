@@ -57,21 +57,21 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
 
         return (
             <div>
-                <form className="product-form" id="addProduct" onSubmit={(e) => onAdd(e)}>
+                <form className="form" id="addProduct" onSubmit={(e) => onAdd(e)}>
                 <label >Product name</label>
-                <input type="text" id="product-name"  onChange={(e) => setProductName(e.target.value)}/>
+                <input className='controls' type="text" id="product-name"  onChange={(e) => setProductName(e.target.value)}/>
                 <br/>
                 <label >Price</label>
-                <input type="number" id="product-price"  onChange={(e) => setProductPrice(Number(e.target.value))}/>
+                <input  className='controls' type="number" id="product-price"  onChange={(e) => setProductPrice(Number(e.target.value))}/>
                 <br/>
                 <label >Description</label>
-                <input type="text" min="0" id="product-description" onChange={(e) => setProductDescription(e.target.value)}/>
+                <input className='controls' type="text" min="0" id="product-description" onChange={(e) => setProductDescription(e.target.value)}/>
                 <br/>
                 <label >Minimum units</label>
-                <input type="number" min="0" id="min-units"  onChange={(e) => setMinUnits(Number(e.target.value))}/>
+                <input className='controls' type="number" min="0" id="min-units"  onChange={(e) => setMinUnits(Number(e.target.value))}/>
                 <br/>
                 <label >Maximum units</label>
-                <input type="number" min="0" id="max-units"  onChange={(e) => setMaxUnits(Number(e.target.value))}/>
+                <input className='controls' type="number" min="0" id="max-units"  onChange={(e) => setMaxUnits(Number(e.target.value))}/>
                 <br/>
                 <label >Select a provider</label>
                 <select id="providers" name="providers" onChange={(e) => selectProvOnList(e)}>
