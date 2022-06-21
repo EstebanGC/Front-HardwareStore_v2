@@ -41,13 +41,12 @@ const LogIn: React.FunctionComponent = () => {
         <label >Password</label>
         <input type="password" name="password" value={password}  onChange={(e) => setPassword(e.target.value)} />
         <br />
-        <button className="btn btn-info" onClick={(e) => logInForm(e)}>Log In</button>
-        <br />        
-        <GoogleLogIn/>
-        <button className="btn btn-info" onClick={() => navigate("/SignUp")}>Sign Up</button><br />
+        <button className="btn btn-info" onClick={(e) => logInForm(e)}>Log In</button>      
+        
       </form>
+      <GoogleLogIn/>
+       <button className="btn btn-info" onClick={() => navigate("/SignUp")}>Sign Up</button><br />
     </div>
-    
   );
 };
 
