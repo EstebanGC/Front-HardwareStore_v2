@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectRecState, selectRecStatus, selectRecErrorFetch } from '../../state/slices/receiptSlice';
 import { getReceipts } from '../../actions/Receipt/getReceipts';
 import Receipt from "./ReceiptTable";
+import ReceiptForm from './ReceiptForm';
 
 interface ReceiptListProps {}
 
@@ -24,8 +25,8 @@ const ReceiptList: React.FunctionComponent<ReceiptListProps> = () => {
 
     return (
        <div>
-        <table id="table">
-            <thead>
+        <table className='table' id="table">
+            <thead className="thead-dark">
                 <tr>
                     <th>Id</th>
                     <th>Units</th>
@@ -36,6 +37,7 @@ const ReceiptList: React.FunctionComponent<ReceiptListProps> = () => {
             </thead>
                     {!error && getRecpts.map((receipt) => <Receipt key={receipt.id} props={receipt}/>)}
         </table>
+        <ReceiptForm/>
        </div>
     )
 }

@@ -3,7 +3,7 @@ import { RootState } from '../state/store';
 import { Route, Routes } from 'react-router-dom';
 import Bills from "../tabs/bills/Bills";
 import Receipts from "../tabs/receipts/Receipts";
-import Home from "../tabs/home/home";
+
 import LogIn from "../tabs/login/LogIn";
 import SignUp from "../tabs/login/LogIn";
 import ProductEdit from "../tabs/product/ProductEdit";
@@ -13,6 +13,7 @@ import ProductAllList from "../tabs/product/ProductAlllist";
 import ProviderList from "../tabs/provider/ProviderList";
 import ProviderAdd from "../tabs/provider/ProviderList";
 import ProductListFilteredTab from "../tabs/product/ProducListFilteredTab";
+import AddReceipt from "../tabs/receipts/ReceiptAdd";
 
 
 
@@ -25,7 +26,7 @@ export default function RoutesSite() {
     return (
         <Routes>
             <Route path='/bills' element={<Bills />} />
-            <Route path='/home' element={<Home />} />
+            
             <Route path='/edit-product' element={<ProductEdit />} />
             <Route path='/new-selling' element={<ProductList />} />
             <Route path='/selling' element={<ProductSelling />} />
@@ -34,6 +35,7 @@ export default function RoutesSite() {
             <Route path='/provider-list' element={<ProviderList />} />
             <Route path='/receipts' element={<Receipts />} />
             <Route path='/product-car' element={<ProductListFilteredTab/>}/>
+            <Route path='/new-receipt' element={<AddReceipt/>}/>
             
         </Routes>
     )

@@ -33,7 +33,7 @@ const ProvidersForm: React.FC<ProviderFormProp> = (props) => {
     let navigate = useNavigate();
 
     return (
-        <div>
+        <div className='form-group'>
             <form className='provider-form' id="addProvider" onSubmit={(e) => {onAdd(e); navigate("/provider-list")}}>
                 <label>Name</label>
                 <input  type="text" name="providerName" value={providerName}  onChange={(e) => setProviderName(e.target.value)} />
@@ -44,7 +44,7 @@ const ProvidersForm: React.FC<ProviderFormProp> = (props) => {
                 <label>Passport</label>
                 <input  type="text" name="providerPassport" value={passport}  onChange={(e) => setPassport(e.target.value)}/>
                 <br/>
-                <button className='provider-bttn'  type="submit">Add Provider</button>
+                <button className="btn btn-info"  type="submit">Add Provider</button>
             </form>
         </div>
         )

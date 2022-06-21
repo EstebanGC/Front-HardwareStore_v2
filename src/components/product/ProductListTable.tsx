@@ -25,8 +25,8 @@ const ProductsListTable: React.FunctionComponent<ProductListProps> = () => {
 
     return (
         <div>
-            <table id='product-table'>
-                <thead>
+            <table className="table" id='product-table'>
+                <thead className="thead-dark">
                     <tr>
                         <th>Product</th>
                         <th>Price</th>
@@ -35,7 +35,8 @@ const ProductsListTable: React.FunctionComponent<ProductListProps> = () => {
                         <th>Maximum units</th>
                         <th>Available units</th>
                         <th>Providers</th>
-                        <th>Delete</th>                    
+                        <th>Edit</th> 
+                        <th>Delete</th>                   
                     </tr>
                 </thead>
                         {!error && getProds.map((product) => <ProductTable key={product.id} props={product}/>)}

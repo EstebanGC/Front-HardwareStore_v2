@@ -20,9 +20,7 @@ const LogOut  = () => {
     }
 
     return (
-        <div>
-            <button className="logout" onClick={(e)=>logOutApp(e)}>Log out</button>
-        </div>
+            <button className="btn btn-info" onClick={(e)=>logOutApp(e)}>Log out</button>
     )
 }
 

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color:#1f2833 ;
 }
 
 .App-logo {
@@ -44,15 +45,24 @@ button {
 h1 {
   text-align: left;
   padding-left: 1%;
-  color: red;
+  color: #66FCF1;
+  background-color: #1f2833;
+  margin: 0px;
 }
 
 hr {
-  color:red;
+  color:#66FCF1;
 }
 
 h3 {
   text-align: left;
   padding-left: 1%;
-  color: red;
+  color: #66FCF1;
+  background-color: #1f2833;
+  margin: 0px;
+}
+
+.title-raul{
+  background-color: #0B0C10;
+  color: #66FCF1
 }

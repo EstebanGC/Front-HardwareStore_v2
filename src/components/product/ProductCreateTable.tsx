@@ -25,18 +25,18 @@ const Product: React.FunctionComponent<productPropsTp> = ({props}) => {
                 <td>{props.productName}</td>
                 <td>{props.productPrice}</td>
                 <td>{props.productDescription}</td>
-                <td>{props.availableUnits}</td>
                 <td>{props.minUnits}</td>
                 <td>{props.maxUnits}</td>
+                <td>{props.availableUnits}</td>
                 <td>{props.providers.providerName}</td>
                 <td>
                     <Link to='/edit-product' state={{productEdit: props}}>
-                        <button className="product-add">
+                        <button className="btn btn-info">
                             Edit
                         </button>
                     </Link>
                 </td>
-                <td><button className="delete" onClick={()=> onDelete(props)}>Delete</button></td>
+                <td><button className="btn btn-info" onClick={()=> onDelete(props)}>Delete</button></td>
             </tr>
         </tbody>
     )

@@ -29,8 +29,8 @@ const ProviderList: React.FunctionComponent<ProviderListProps> = () => {
     return (
         <div>
             <ProviderForm/>
-            <table id="table">
-                <thead>
+            <table className="table" id="table">
+                <thead className="thead-dark">
                     <tr>
                         <th>Provider</th>
                         <th>E-mail</th>

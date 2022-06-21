@@ -16,7 +16,6 @@ const Home = () => {
             <div className='divUrls'>
                 <ul className="divUrls">
                     <Link to='/providers'>Providers</Link>
-                    <Link to='/balance'>Balance</Link>
                     <Link to='/new-selling'>New selling</Link>
                     <Link to='/bills'>Bills</Link>
                     <Link to='/receipts'>Receipts</Link>

@@ -9,7 +9,7 @@ const ProductAllList = () => {
 
     return (
         <div className='main-content'>
-            <h1>Stock</h1>
+            <h1>Products in cellar</h1>
             <ProductsListTable/>
         </div>
     )

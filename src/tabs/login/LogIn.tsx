@@ -36,20 +36,18 @@ const LogIn: React.FunctionComponent = () => {
       <h1>Log In</h1>
       <form className="form">
         <label >Username</label>
-        <br />
-        <input type="text" id="username" value={userName} placeholder="Username" onChange={(e) => setUserName(e.target.value)} />
+        <input type="text" id="username" value={userName}  onChange={(e) => setUserName(e.target.value)} />
         <br />
         <label >Password</label>
-        <input type="password" name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" name="password" value={password}  onChange={(e) => setPassword(e.target.value)} />
         <br />
-        <br />
-        <button className='button3' onClick={(e) => logInForm(e)}>Log In</button><br />
+        <button className="btn btn-info" onClick={(e) => logInForm(e)}>Log In</button>
         <br />        
       </form>
       <GoogleLogIn/>
-      <br />
-      <br />
-      <button className='button3' onClick={() => navigate("/SignUp")}>Sign Up</button><br />
+  
+      
+      <button className="btn btn-info" onClick={() => navigate("/SignUp")}>Sign Up</button><br/>
     </div>
     
   );

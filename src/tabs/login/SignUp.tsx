@@ -37,16 +37,16 @@ const SignUp = () => {
             <form className="form">
                 <label >Username</label>
                 <br />
-                <input type="text" id="username" value={userName} placeholder="Username" onChange={(e) => setUserName(e.target.value)} />
+                <input type="text" id="username" value={userName}  onChange={(e) => setUserName(e.target.value)} />
                 <br />
                 <label >Password</label>
-                <input type="password" name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" name="password" value={password}  onChange={(e) => setPassword(e.target.value)} />
                 <br />
                 <br />
-                <button className='button3' onClick={(e) => signInForm(e)}>Sign up</button><br />
+                <button className="btn btn-info" onClick={(e) => signInForm(e)}>Sign up</button><br />
                 <br />
                 <br />
-                <button className='button3' onClick={() => navigate("/")}>Go Back</button><br />
+                <button className="btn btn-info" onClick={() => navigate("/")}>Go Back</button><br />
             </form>
         </div>
     )

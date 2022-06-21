@@ -14,7 +14,8 @@ function App() {
   return (
 
   <div>
-      <h1>Hey, we're working... be patient 🤟🏻 </h1>
+      <h1 className='title-raul'>Welcome to Raul's Hardware Store </h1>
+      
       <BrowserRouter>
       <NavBar/>
     

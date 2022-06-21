@@ -31,8 +31,8 @@ const ProductListFiltered: React.FunctionComponent<ProductListProps> = () => {
     
     return (
         <div>
-            <table id='table'>
-                <thead>
+            <table className="table" id='table'>
+                <thead className="thead-dark">
                     <tr>
                         <th>Product</th>
                         <th>Price</th>

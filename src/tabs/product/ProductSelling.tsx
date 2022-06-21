@@ -39,8 +39,6 @@ const ProductSelling = () => {
 
     //Call logged user state
 
-    //const getUser = useSelector()
-    
     let total = auxiliarState.productsSold.map(product => product.productPrice*product.sold).reduce((a,b) => a+b,0)
 
     const [clientName, setClientName] = useState("")
@@ -94,8 +92,8 @@ const ProductSelling = () => {
 
     return (
         <div className="main-content">
-            <table id="table">
-                <thead>
+            <table className="table" id="table">
+                <thead className="thead-dark">
                     <tr>
                         <th>Product</th>
                         <th>Price</th>
@@ -104,16 +102,19 @@ const ProductSelling = () => {
                 </thead>
                 {<ProductSellTable props={auxiliarState} />}
             </table>
-            <form className="form"  id="addProduct" onSubmit={(e) => onSelling(e)}>
-                <label>Total</label>
+            <form  id="addProduct" onSubmit={(e) => onSelling(e)}>
+                <label htmlFor="exampleInputEmail1">Total</label>
                 <input type="number" id="total" value={total}/>
-                <label>Client Name</label>
-                <input type="text" id="name"  onChange={(e) => setClientName(e.target.value)}/>
-                <label>Seller Name</label>
-                <input type="text" id="description"  value={user.displayName} />
-                <input type="submit" value="Selling"/>
                 <br/>
-                <button className="button3" onClick={() => {navigate("/new-selling");dispatch(emptyProducts())}}>Back</button>
+                <label htmlFor="exampleInputEmail1">Client Name</label>
+                <input type="text" id="name"  onChange={(e) => setClientName(e.target.value)}/>
+                <br/>
+                <label htmlFor="exampleInputEmail1">Seller Name</label>
+                <input type="text" id="description"  value={user.displayName} />
+                <br/>
+                <input className="btn btn-info" type="submit" value="Selling"/>
+                <br/>
+                <button className="btn btn-info" onClick={() => {navigate("/new-selling");dispatch(emptyProducts())}}>Back</button>
                 <br/>
             </form>
         </div>

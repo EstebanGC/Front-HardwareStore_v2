@@ -18,7 +18,6 @@ const ProvidersList = () => {
             <ProviderList/>
             <br/>
             <div className="centering">
-                <button className="button4" onClick={() => navigate("/create-provider")}>Add provider</button>
             </div>            
         </div>
     )

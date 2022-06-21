@@ -1,4 +1,3 @@
-import BillList from "../../components/bill/BillTable";
 import { RootState } from "../../state/store";
 import { useSelector } from "react-redux";
 import { useEffect} from 'react'
@@ -15,7 +14,7 @@ const Bills = () => {
 
     return (
         <div className="main-content">
-        <h1>Bill list</h1>
+        <h1>Bills</h1>
         <BillLists/>
         </div>
     )

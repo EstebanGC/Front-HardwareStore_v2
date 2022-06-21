@@ -19,7 +19,7 @@ const ProductList = () => {
             <h1>Create a new selling</h1>
             <form id="table" onSubmit={()=> navigate("/selling")}>
                 <ProductListFiltered/>
-                <input className="goToOrder" id="submit" type="submit" value="Submit" />
+                <input className="btn btn-info" id="submit" type="submit" value="Add selling" />
             </form>
         </div>
     )

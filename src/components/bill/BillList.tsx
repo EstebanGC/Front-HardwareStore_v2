@@ -23,8 +23,8 @@ const BillLists: React.FunctionComponent<BillListProps> = () => {
 
     return (
         <div>
-            <table id='table'>
-                <thead>
+            <table className="table" id='table'>
+                <thead className="thead-dark">
                     <tr>
                         <th>Id</th>
                         <th>Date</th>

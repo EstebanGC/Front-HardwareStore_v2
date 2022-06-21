@@ -8,13 +8,13 @@ import { nanoid } from '@reduxjs/toolkit';
 import { receiptTp } from '../../state/slices/receiptSlice';
 import { createReceipt } from '../../actions/Receipt/createReceipt';
 import moment from 'moment';
-import {createProduct} from "../../actions/Product/createProduct";
 import { getProducts } from '../../actions/Product/getProduct';
 
 
 interface ProductFormProps{}
 
 const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
+
     interface stateEdit {
         productEdit: productTp
     }
@@ -75,18 +75,19 @@ const ProductForm: React.FunctionComponent<ProductFormProps> = (props) => {
             <form className='product-edit-form' id='addProduct' onSubmit={(e)=> onEdit(e)}>
                 <label>Change description</label>
                 <input type='text' id='description' placeholder={productEdit.productDescription} onChange={(e) => setProductDescription(e.target.value)}/> 
+                <br/>
                 <label>Price</label>
                 <input type='text' id='price' placeholder={String(productEdit.productPrice)} onChange={(e) => setProductPrice(Number(e.target.value))}/>
-                <label>Available units</label>
                 <br/>
+                <label>Available units</label>          
                 <th>{productEdit.availableUnits}</th>
                 <br/>
                 <label>Add units</label>
-                <input type='number' min='0' max={productEdit.maxUnits - productEdit.availableUnits} id='available-units' placeholder="Add available units ..."
+                <input type='number' min='0' max={productEdit.maxUnits - productEdit.availableUnits} id='available-units' 
                 onChange={(e)=> setAddAvailableUnits(Number(e.target.value))}/>
-                <input type='submit' value="Update" />
                 <br/>
-                <button className='button3' onClick={() => navigate("/stock")}>Back</button>
+                <input className="btn btn-info" type='submit' value="Update" />
+                <button className="btn btn-info" onClick={() => navigate("/stock")}>Back</button>
             </form>
 
         </div>

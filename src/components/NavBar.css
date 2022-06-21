@@ -1,0 +1,19 @@
+.nav-bar {
+    background-color: #1f2833;
+    margin: 0px;
+    padding-left: 0.00001px;
+    align-items: center;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px;
+    align-items: center;
+}
+
+.tabs link {
+    color: #66FCF1;
+    margin: 0px;
+}
